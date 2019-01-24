@@ -1,0 +1,4 @@
+https://developers.google.com/youtube/v3/docs/
+
+upload : UUuaPTYj15JSkETGnEseaFFg
+api key : AIzaSyBLXebhVQKxxvGW4ShKeRWCmHKL-ZX16bU
