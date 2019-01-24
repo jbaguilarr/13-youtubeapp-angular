@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 //import { Http,URLSearchParams } from "@angular/http";
-import { HttpClient,HttpParams} from '@angular/common/http'
+import { HttpClient,HttpParams} from '@angular/common/http';
 import { map } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
@@ -10,7 +10,7 @@ export class YoutubeService {
    youtubeurl:string ="https://www.googleapis.com/youtube/v3";
    apikey:string = "AIzaSyBLXebhVQKxxvGW4ShKeRWCmHKL-ZX16bU";
    playlist :string ="UUuaPTYj15JSkETGnEseaFFg";
-   
+
    nextPageToken : string ="CBkQAA";
   constructor(public http:HttpClient) { }
 
@@ -21,6 +21,11 @@ export class YoutubeService {
       params = params.set('maxResults','10');
       params = params.set('playlistId',this.playlist);
       params = params.set('key',this.apikey);
+
+      if( this.nextPageToken ){
+        params = params.set('pageToken', this.nextPageToken);
+      }
+
       return  this.getQuery(query,params).pipe(map(data=>{
           this.nextPageToken = data['nextPageToken'];
 
